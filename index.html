@@ -20,21 +20,108 @@ html{scroll-behavior:smooth;}
 body{font-family:'Noto Sans KR',sans-serif;color:var(--text);overflow-x:hidden;}
 
   
-/* ─── NAV ─── */
-#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;transition:background .4s,box-shadow .4s;}
-#nav.dark{background:rgba(10,10,10,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-d);}
-#nav.light{background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-l);box-shadow:0 1px 20px rgba(0,0,0,0.06);}
-.nav-logo{display:flex;align-items:center;text-decoration:none;}
-.nav-logo img{height:30px;width:auto;object-fit:contain;transition:filter .3s;}
-#nav.dark .nav-logo img{filter:none;opacity:1;}
-#nav.light .nav-logo img{filter:none;opacity:1;}
-.nav-links{display:flex;gap:1.75rem;list-style:none;}
-.nav-links a{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;transition:color .2s;}
-#nav.dark .nav-links a{color:rgba(255,255,255,.5);}
+/* ─── NAV FIXED VERSION ─── */
+#nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .4s, box-shadow .4s;
+}
+
+.nav-inner{
+  width:100%;
+  max-width:1200px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+  margin:0 auto;
+}
+
+#nav.dark{
+  background:rgba(10,10,10,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line-d);
+}
+
+#nav.light{
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line-l);
+  box-shadow:0 1px 20px rgba(0,0,0,0.06);
+}
+
+.nav-logo{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  flex-shrink:0;
+}
+
+.nav-logo img{
+  height:30px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+  filter:none;
+  opacity:1;
+}
+
+#nav.dark .nav-logo img{
+  filter:none;
+  opacity:1;
+}
+
+#nav.light .nav-logo img{
+  filter:none;
+  opacity:1;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:1.75rem;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.nav-links a{
+  font-size:.74rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:color .2s;
+}
+
+#nav.dark .nav-links a{color:rgba(255,255,255,.6);}
 #nav.dark .nav-links a:hover{color:var(--white);}
 #nav.light .nav-links a{color:var(--mid);}
 #nav.light .nav-links a:hover{color:var(--red);}
-.nav-cta{font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.05em;text-decoration:none;padding:.4rem 1rem;border-radius:2px;background:var(--red);color:var(--white);transition:background .2s;white-space:nowrap;}
+
+.nav-cta{
+  font-family:'Montserrat',sans-serif;
+  font-size:.74rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-decoration:none;
+  padding:.5rem 1.2rem;
+  border-radius:2px;
+  background:var(--red);
+  color:var(--white);
+  transition:background .2s;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
 .nav-cta:hover{background:var(--red-b);}
 
 /* ─── HERO ─── */
@@ -266,15 +353,21 @@ footer{background:#050505;border-top:1px solid rgba(255,255,255,.05);padding:2.5
 
 <!-- NAV -->
 <nav id="nav" class="dark">
-  <a href="#home" class="nav-logo"><img src="logo.jpg" alt="able Mathematics Education Center"></a>
-  <ul class="nav-links">
-    <li><a href="#grade">과정 안내</a></li>
-    <li><a href="#about">학원 소개</a></li>
-    <li><a href="#philosophy">교육 철학</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact">상담 신청</a></li>
-  </ul>
-  <a href="tel:052-258-1580" class="nav-cta">052-258-1580</a>
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <img src="logo.jpg" alt="able Mathematics Education Center">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#grade">과정 안내</a></li>
+      <li><a href="#about">학원 소개</a></li>
+      <li><a href="#philosophy">교육 철학</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">상담 신청</a></li>
+    </ul>
+
+    <a href="tel:052-258-1580" class="nav-cta">052-258-1580</a>
+  </div>
 </nav>
 
 <!-- HERO -->
